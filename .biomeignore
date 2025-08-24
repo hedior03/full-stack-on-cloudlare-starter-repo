@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs
+dist
+build
+.next
+.turbo
+.wrangler
+.mf
+
+# Generated files
+**/*.gen.ts
+**/routeTree.gen.ts
+**/auth-gen/**
+**/generated/**
+
+# Lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Public assets
+public
+
+# Minified files
+**/*.min.js
+**/*.min.css
+
+# Coverage reports
+coverage
+.nyc_output
+
+# IDE
+.vscode
+.idea
+
+# Temp files
+*.tmp
+*.temp
+.DS_Store

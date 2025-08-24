@@ -1,0 +1,229 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.json",
+      "**/*.jsonc",
+      "**/*.mjs",
+      "**/*.cjs"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 120,
+    "attributePosition": "auto",
+    "bracketSpacing": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": false,
+      "correctness": {
+        "noChildrenProp": "error",
+        "noConstAssign": "error",
+        "noConstructorReturn": "error",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noGlobalObjectCalls": "error",
+        "noInnerDeclarations": "error",
+        "noInvalidConstructorSuper": "error",
+        "noInvalidBuiltinInstantiation": "error",
+        "noInvalidUseBeforeDeclaration": "error",
+        "noNonoctalDecimalEscape": "error",
+        "noPrecisionLoss": "error",
+        "noSelfAssign": "error",
+        "noSetterReturn": "error",
+        "noSwitchDeclarations": "error",
+        "noUndeclaredVariables": "error",
+        "noUnreachable": "error",
+        "noUnreachableSuper": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedImports": "off",
+        "noUnusedVariables": "off",
+        "noVoidElementsWithChildren": "error",
+        "noVoidTypeReturn": "error",
+        "useExhaustiveDependencies": "off",
+        "useHookAtTopLevel": "error",
+        "useIsNan": "error",
+        "useJsxKeyInIterable": "warn",
+        "useValidForDirection": "error",
+        "useYield": "error"
+      },
+      "style": {
+        "noParameterAssign": "error",
+        "useConst": "off"
+      },
+      "suspicious": {
+        "noAssignInExpressions": "error",
+        "noAsyncPromiseExecutor": "error",
+        "noCatchAssign": "error",
+        "noClassAssign": "error",
+        "noCompareNegZero": "error",
+        "noConfusingLabels": "error",
+        "noConsole": "off",
+        "noConstEnum": "warn",
+        "noControlCharactersInRegex": "error",
+        "noDebugger": "warn",
+        "noDoubleEquals": "off",
+        "noDuplicateCase": "error",
+        "noDuplicateClassMembers": "error",
+        "noDuplicateJsxProps": "error",
+        "noDuplicateObjectKeys": "error",
+        "noDuplicateParameters": "error",
+        "noEmptyInterface": "off",
+        "noExplicitAny": "off",
+        "noExtraNonNullAssertion": "error",
+        "noFallthroughSwitchClause": "error",
+        "noFunctionAssign": "error",
+        "noGlobalAssign": "error",
+        "noImportAssign": "error",
+        "noLabelVar": "error",
+        "noMisleadingCharacterClass": "error",
+        "noMisleadingInstantiator": "error",
+        "noPrototypeBuiltins": "warn",
+        "noRedeclare": "error",
+        "noSelfCompare": "error",
+        "noShadowRestrictedNames": "error",
+        "noSparseArray": "error",
+        "noSuspiciousSemicolonInJsx": "error",
+        "noThenProperty": "error",
+        "noUnsafeDeclarationMerging": "error",
+        "noUnsafeNegation": "error",
+        "noWith": "error",
+        "useDefaultSwitchClauseLast": "error",
+        "useGetterReturn": "error",
+        "useIsArray": "warn",
+        "useNamespaceKeyword": "error"
+      },
+      "complexity": {
+        "noBannedTypes": "warn",
+        "noExtraBooleanCast": "warn",
+        "noUselessCatch": "warn",
+        "noUselessConstructor": "off",
+        "noUselessEmptyExport": "off",
+        "noUselessFragments": "off",
+        "noUselessLabel": "warn",
+        "noUselessLoneBlockStatements": "warn",
+        "noUselessRename": "warn",
+        "noUselessSwitchCase": "warn",
+        "noUselessTernary": "warn",
+        "noUselessThisAlias": "off",
+        "noUselessTypeConstraint": "off",
+        "noVoid": "off",
+        "useArrowFunction": "off",
+        "useFlatMap": "off",
+        "useLiteralKeys": "off",
+        "useOptionalChain": "off",
+        "useRegexLiterals": "off",
+        "useSimpleNumberKeys": "off"
+      },
+      "a11y": {
+        "noAutofocus": "off",
+        "useButtonType": "warn",
+        "useKeyWithClickEvents": "off",
+        "useKeyWithMouseEvents": "off",
+        "useValidAnchor": "off",
+        "noSvgWithoutTitle": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "warn",
+        "noDelete": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "warn",
+        "noDangerouslySetInnerHtmlWithChildren": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "double",
+      "semicolons": "asNeeded",
+      "trailingCommas": "es5"
+    },
+    "globals": []
+  },
+  "json": {
+    "formatter": {
+      "enabled": false
+    },
+    "linter": {
+      "enabled": false
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": false
+    },
+    "linter": {
+      "enabled": false
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["*.config.js", "*.config.ts", "*.config.mjs", "vite.config.ts"],
+      "linter": {
+        "rules": {}
+      }
+    },
+    {
+      "includes": ["**/*.d.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off",
+            "noConsole": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/routes/**/*.tsx", "**/routes/**/*.ts"],
+      "linter": {
+        "rules": {}
+      }
+    },
+    {
+      "includes": ["apps/data-service/**/*.ts", "apps/data-service/**/*.js"],
+      "formatter": {
+        "indentStyle": "tab"
+      },
+      "javascript": {
+        "formatter": {
+          "quoteStyle": "single"
+        }
+      }
+    }
+  ]
+}
