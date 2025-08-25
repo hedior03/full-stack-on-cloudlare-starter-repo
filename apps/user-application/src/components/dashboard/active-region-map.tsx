@@ -7,12 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Globe, ChevronDown } from "lucide-react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { useState, useMemo } from "react";
 import countries from "world-countries";
 import { useGeoClickStore } from "@/hooks/geo-clicks-store";
@@ -69,8 +64,7 @@ export function ActiveRegionMap() {
 
   const [selectedRegion, setSelectedRegion] = useState<string>("Americas");
 
-  const currentRegion =
-    regions.find((r) => r.id === selectedRegion) || regions[0];
+  const currentRegion = regions.find((r) => r.id === selectedRegion) || regions[0];
 
   // Filter clicks by selected region and group them
   const regionClicks = useMemo(() => {
@@ -98,10 +92,7 @@ export function ActiveRegionMap() {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               {regions.map((region) => (
-                <DropdownMenuItem
-                  key={region.id}
-                  onClick={() => setSelectedRegion(region.id)}
-                >
+                <DropdownMenuItem key={region.id} onClick={() => setSelectedRegion(region.id)}>
                   {region.name}
                 </DropdownMenuItem>
               ))}
@@ -145,40 +136,13 @@ export function ActiveRegionMap() {
               const secondMaxRadius = Math.min(4 + group.count * 1.5, 25);
 
               return (
-                <Marker
-                  key={index}
-                  coordinates={[group.longitude, group.latitude]}
-                >
+                <Marker key={index} coordinates={[group.longitude, group.latitude]}>
                   <g>
-                    <circle
-                      r={maxRadius}
-                      fill="none"
-                      stroke="#ef4444"
-                      strokeWidth="1"
-                      opacity="0"
-                    >
-                      <animate
-                        attributeName="r"
-                        from={baseRadius}
-                        to={maxRadius}
-                        dur="1.5s"
-                        repeatCount="indefinite"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        from="0.8"
-                        to="0"
-                        dur="1.5s"
-                        repeatCount="indefinite"
-                      />
+                    <circle r={maxRadius} fill="none" stroke="#ef4444" strokeWidth="1" opacity="0">
+                      <animate attributeName="r" from={baseRadius} to={maxRadius} dur="1.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
                     </circle>
-                    <circle
-                      r={secondMaxRadius}
-                      fill="none"
-                      stroke="#ef4444"
-                      strokeWidth="0.5"
-                      opacity="0"
-                    >
+                    <circle r={secondMaxRadius} fill="none" stroke="#ef4444" strokeWidth="0.5" opacity="0">
                       <animate
                         attributeName="r"
                         from={baseRadius}

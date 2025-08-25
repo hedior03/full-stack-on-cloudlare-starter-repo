@@ -3,18 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "@/components/ui/command";
 import { Plus, Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import iso31661 from "iso-3166-1";
@@ -29,23 +19,15 @@ interface AddDestinationFormProps {
   destinations: DestinationsSchemaType;
 }
 
-export function AddDestinationForm({
-  usedCountryCodes,
-  linkId,
-  destinations,
-}: AddDestinationFormProps) {
+export function AddDestinationForm({ usedCountryCodes, linkId, destinations }: AddDestinationFormProps) {
   const [newCountry, setNewCountry] = useState("");
   const [newUrl, setNewUrl] = useState("");
   const [open, setOpen] = useState(false);
 
   const countries = iso31661.all();
-  const availableCountries = countries.filter(
-    (country) => !usedCountryCodes.includes(country.alpha2),
-  );
+  const availableCountries = countries.filter((country) => !usedCountryCodes.includes(country.alpha2));
 
-  const selectedCountry = availableCountries.find(
-    (country) => country.alpha2 === newCountry,
-  );
+  const selectedCountry = availableCountries.find((country) => country.alpha2 === newCountry);
 
   const updateDestinationMutation = useMutation(
     trpc.links.updateLinkDestinations.mutationOptions({
@@ -101,9 +83,7 @@ export function AddDestinationForm({
                     aria-expanded={open}
                     className="w-full justify-between h-10"
                   >
-                    {selectedCountry
-                      ? selectedCountry.country
-                      : "Select country..."}
+                    {selectedCountry ? selectedCountry.country : "Select country..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -117,21 +97,12 @@ export function AddDestinationForm({
                           key={country.alpha2}
                           value={country.country}
                           onSelect={() => {
-                            setNewCountry(
-                              country.alpha2 === newCountry
-                                ? ""
-                                : country.alpha2,
-                            );
+                            setNewCountry(country.alpha2 === newCountry ? "" : country.alpha2);
                             setOpen(false);
                           }}
                         >
                           <Check
-                            className={cn(
-                              "mr-2 h-4 w-4",
-                              newCountry === country.alpha2
-                                ? "opacity-100"
-                                : "opacity-0",
-                            )}
+                            className={cn("mr-2 h-4 w-4", newCountry === country.alpha2 ? "opacity-100" : "opacity-0")}
                           />
                           {country.country}
                         </CommandItem>
@@ -154,9 +125,7 @@ export function AddDestinationForm({
           </div>
           <Button
             onClick={addGeoDestination}
-            disabled={
-              !newCountry || !newUrl || updateDestinationMutation.isPending
-            }
+            disabled={!newCountry || !newUrl || updateDestinationMutation.isPending}
             className="w-full h-10"
           >
             <Plus className="w-4 h-4 mr-2" />

@@ -1,6 +1,5 @@
-import { t } from "@/worker/trpc/trpc-instance";
-
 import { z } from "zod";
+import { t } from "@/worker/trpc/trpc-instance";
 import { EVALUATION_ISSUES, EVALUATIONS } from "./dummy-data";
 
 export const evaluationsTrpcRoutes = t.router({
@@ -18,10 +17,7 @@ export const evaluationsTrpcRoutes = t.router({
     .query(async ({}) => {
       const evaluations = EVALUATIONS;
 
-      const oldestCreatedAt =
-        evaluations.length > 0
-          ? evaluations[evaluations.length - 1].createdAt
-          : null;
+      const oldestCreatedAt = evaluations.length > 0 ? evaluations[evaluations.length - 1].createdAt : null;
 
       return {
         data: evaluations,

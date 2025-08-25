@@ -24,12 +24,7 @@ interface GeoRoutingToggleProps {
   geoToggle: boolean;
 }
 
-export function GeoRoutingToggle({
-  destinations,
-  linkId,
-  setGeoToggle,
-  geoToggle,
-}: GeoRoutingToggleProps) {
+export function GeoRoutingToggle({ destinations, linkId, setGeoToggle, geoToggle }: GeoRoutingToggleProps) {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   const updateDestinationMutation = useMutation(
@@ -48,9 +43,7 @@ export function GeoRoutingToggle({
     }),
   );
 
-  const handleUpdateDestination = (
-    updatedDestinations: DestinationsSchemaType,
-  ) => {
+  const handleUpdateDestination = (updatedDestinations: DestinationsSchemaType) => {
     updateDestinationMutation.mutate({
       linkId: linkId,
       destinations: updatedDestinations,
@@ -103,15 +96,13 @@ export function GeoRoutingToggle({
           <AlertDialogHeader>
             <AlertDialogTitle>Disable Geo Routing?</AlertDialogTitle>
             <AlertDialogDescription>
-              Geo destination links will be removed and only the default
-              destination will remain. This action cannot be undone.
+              Geo destination links will be removed and only the default destination will remain. This action cannot be
+              undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleConfirmDisable}>
-              Disable Geo Routing
-            </AlertDialogAction>
+            <AlertDialogAction onClick={handleConfirmDisable}>Disable Geo Routing</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

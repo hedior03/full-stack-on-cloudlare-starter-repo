@@ -13,14 +13,7 @@ interface MetricCardProps {
   descriptionColor?: string;
 }
 
-function MetricCard({
-  title,
-  icon,
-  value,
-  description,
-  valueFormatted = true,
-  descriptionColor,
-}: MetricCardProps) {
+function MetricCard({ title, icon, value, description, valueFormatted = true, descriptionColor }: MetricCardProps) {
   return (
     <Card className="hover:shadow-md transition-all duration-200">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -29,13 +22,9 @@ function MetricCard({
       </CardHeader>
       <CardContent>
         <div className="text-4xl font-bold">
-          {valueFormatted && typeof value === "number"
-            ? value.toLocaleString()
-            : value}
+          {valueFormatted && typeof value === "number" ? value.toLocaleString() : value}
         </div>
-        <p className={`text-xs ${descriptionColor || "text-muted-foreground"}`}>
-          {description}
-        </p>
+        <p className={`text-xs ${descriptionColor || "text-muted-foreground"}`}>{description}</p>
       </CardContent>
     </Card>
   );

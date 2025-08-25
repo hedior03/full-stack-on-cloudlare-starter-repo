@@ -1,10 +1,5 @@
-import {
-  IconCirclePlusFilled,
-  IconDashboard,
-  IconLink,
-  IconReport,
-} from "@tabler/icons-react";
-
+import { IconCirclePlusFilled, IconDashboard, IconLink, IconReport } from "@tabler/icons-react";
+import { useNavigate } from "@tanstack/react-router";
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -12,7 +7,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { useNavigate } from "@tanstack/react-router";
 
 export function NavMain() {
   const nav = useNavigate();

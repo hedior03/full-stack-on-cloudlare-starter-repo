@@ -10,11 +10,7 @@ interface GeoRoutingSectionProps {
   geoToggle: boolean;
 }
 
-export function GeoRoutingSection({
-  destinations,
-  linkId,
-  geoToggle,
-}: GeoRoutingSectionProps) {
+export function GeoRoutingSection({ destinations, linkId, geoToggle }: GeoRoutingSectionProps) {
   const usedCountryCodes = Object.keys(destinations);
 
   return (
@@ -26,15 +22,8 @@ export function GeoRoutingSection({
 
       {geoToggle && (
         <>
-          <AddDestinationForm
-            usedCountryCodes={usedCountryCodes}
-            linkId={linkId}
-            destinations={destinations}
-          />
-          <GeographicDestinationsList
-            destinations={destinations}
-            linkId={linkId}
-          />
+          <AddDestinationForm usedCountryCodes={usedCountryCodes} linkId={linkId} destinations={destinations} />
+          <GeographicDestinationsList destinations={destinations} linkId={linkId} />
         </>
       )}
     </div>

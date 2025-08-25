@@ -59,12 +59,7 @@ export function LinkNameEditor({ linkId, initialName }: LinkNameEditorProps) {
             <Eye className="w-3 h-3" />
             Active
           </Badge>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsEditing(true)}
-            className="h-8 w-8 p-0"
-          >
+          <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)} className="h-8 w-8 p-0">
             <Edit3 className="w-4 h-4" />
           </Button>
         </div>

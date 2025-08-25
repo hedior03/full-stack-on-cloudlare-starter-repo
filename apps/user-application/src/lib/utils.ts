@@ -9,9 +9,7 @@ export const formatRelativeTime = (timestamp: string) => {
   const now = new Date();
   const clickedTime = new Date(timestamp);
   console.log(clickedTime);
-  const diffInSeconds = Math.floor(
-    (now.getTime() - clickedTime.getTime()) / 1000,
-  );
+  const diffInSeconds = Math.floor((now.getTime() - clickedTime.getTime()) / 1000);
 
   if (diffInSeconds < 60) {
     return `${diffInSeconds} second${diffInSeconds !== 1 ? "s" : ""} ago`;

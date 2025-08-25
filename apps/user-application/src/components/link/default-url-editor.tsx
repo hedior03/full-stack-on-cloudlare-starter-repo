@@ -49,9 +49,7 @@ export function DefaultUrlEditor({
       <Label htmlFor="defaultUrl" className="text-sm font-medium">
         {label}
       </Label>
-      {description && (
-        <p className="text-sm text-muted-foreground">{description}</p>
-      )}
+      {description && <p className="text-sm text-muted-foreground">{description}</p>}
       {isEditing ? (
         <div className="flex items-center gap-2">
           <Input
@@ -69,12 +67,7 @@ export function DefaultUrlEditor({
       ) : (
         <div className="flex items-center gap-3 p-4 rounded-lg border bg-muted/30">
           <code className="text-sm text-muted-foreground flex-1">{url}</code>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsEditing(true)}
-            className="h-8 w-8 p-0"
-          >
+          <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)} className="h-8 w-8 p-0">
             <Edit3 className="w-4 h-4" />
           </Button>
         </div>

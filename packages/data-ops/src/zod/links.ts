@@ -51,13 +51,9 @@ export const durableObjectGeoClickSchama = z.object({
   country: z.string(),
 });
 
-export const durableObjectGeoClickArraySchema = z.array(
-  durableObjectGeoClickSchama,
-);
+export const durableObjectGeoClickArraySchema = z.array(durableObjectGeoClickSchama);
 
-export type DurableObjectGeoClickSchemaType = z.infer<
-  typeof durableObjectGeoClickSchama
->;
+export type DurableObjectGeoClickSchemaType = z.infer<typeof durableObjectGeoClickSchama>;
 
 export type CloudflareInfoSchemaType = z.infer<typeof cloudflareInfoSchema>;
 

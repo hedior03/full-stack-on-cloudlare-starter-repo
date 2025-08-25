@@ -14,7 +14,6 @@
       "**/*.js",
       "**/*.jsx",
       "**/*.json",
-      "**/*.jsonc",
       "**/*.mjs",
       "**/*.cjs"
     ]
@@ -54,7 +53,7 @@
         "noUnreachableSuper": "error",
         "noUnsafeFinally": "error",
         "noUnsafeOptionalChaining": "error",
-        "noUnusedImports": "off",
+        "noUnusedImports": "warn",
         "noUnusedVariables": "off",
         "noVoidElementsWithChildren": "error",
         "noVoidTypeReturn": "error",
@@ -159,8 +158,8 @@
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
       "quoteStyle": "double",
-      "semicolons": "asNeeded",
-      "trailingCommas": "es5"
+      "semicolons": "always",
+      "trailingCommas": "all"
     },
     "globals": []
   },
@@ -223,6 +222,15 @@
         "formatter": {
           "quoteStyle": "single"
         }
+      }
+    },
+    {
+      "includes": ["**/components/ui/**", "**/src/components/ui/**"],
+      "formatter": {
+        "enabled": false
+      },
+      "linter": {
+        "enabled": false
       }
     }
   ]

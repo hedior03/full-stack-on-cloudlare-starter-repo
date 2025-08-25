@@ -16,10 +16,7 @@ interface GeographicDestinationsListProps {
   destinations: DestinationsSchemaType;
 }
 
-export function GeographicDestinationsList({
-  linkId,
-  destinations,
-}: GeographicDestinationsListProps) {
+export function GeographicDestinationsList({ linkId, destinations }: GeographicDestinationsListProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const updateDestinationMutation = useMutation(
@@ -57,9 +54,7 @@ export function GeographicDestinationsList({
 
   // Get all country codes except 'default' and sort by country name
   const sortedCountryEntries = useMemo(() => {
-    const countryEntries = Object.entries(destinations).filter(
-      ([key]) => key !== "default",
-    );
+    const countryEntries = Object.entries(destinations).filter(([key]) => key !== "default");
 
     return countryEntries.sort(([codeA], [codeB]) => {
       const nameA = getCountryNameByCode(codeA);
@@ -109,12 +104,8 @@ export function GeographicDestinationsList({
             }}
             className="flex items-center gap-3 p-4 rounded-lg border bg-muted/50 overflow-hidden"
           >
-            <Badge variant="secondary">
-              {getCountryNameByCode(countryCode)}
-            </Badge>
-            <div className="flex-1 font-mono text-sm text-muted-foreground  px-3 py-2 rounded border">
-              {url}
-            </div>
+            <Badge variant="secondary">{getCountryNameByCode(countryCode)}</Badge>
+            <div className="flex-1 font-mono text-sm text-muted-foreground  px-3 py-2 rounded border">{url}</div>
             <Button
               variant="ghost"
               size="sm"

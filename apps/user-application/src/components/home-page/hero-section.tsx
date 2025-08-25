@@ -41,23 +41,16 @@ export function HeroSection() {
 
           {/* Subheading */}
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Smart link management with AI monitoring and geo-routing that keeps
-            your traffic flowing and revenue growing.
+            Smart link management with AI monitoring and geo-routing that keeps your traffic flowing and revenue
+            growing.
           </p>
 
           {/* CTA Section */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <div className="flex gap-2 w-full sm:w-auto max-w-md">
-              <Input
-                placeholder="Enter your URL to shorten"
-                className="h-11 text-base"
-              />
+              <Input placeholder="Enter your URL to shorten" className="h-11 text-base" />
               {data ? (
-                <Button
-                  size="lg"
-                  className="h-11 px-6"
-                  onClick={handleStartFree}
-                >
+                <Button size="lg" className="h-11 px-6" onClick={handleStartFree}>
                   Start Free
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>

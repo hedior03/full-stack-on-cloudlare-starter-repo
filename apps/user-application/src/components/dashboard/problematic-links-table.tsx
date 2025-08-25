@@ -1,12 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { trpc } from "@/router";
 import { useSuspenseQuery } from "@tanstack/react-query";
@@ -16,9 +9,7 @@ import { useNavigate } from "@tanstack/react-router";
 export function ProblematicLinksTable() {
   const navigate = useNavigate();
 
-  const { data: problematicDestinations } = useSuspenseQuery(
-    trpc.evaluations.problematicDestinations.queryOptions(),
-  );
+  const { data: problematicDestinations } = useSuspenseQuery(trpc.evaluations.problematicDestinations.queryOptions());
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -61,9 +52,7 @@ export function ProblematicLinksTable() {
                 >
                   <TableCell className="font-medium">
                     <div className="flex items-center gap-2">
-                      <div className="max-w-xs truncate">
-                        {destination.destinationUrl}
-                      </div>
+                      <div className="max-w-xs truncate">{destination.destinationUrl}</div>
                       <Button
                         variant="ghost"
                         size="sm"
@@ -91,9 +80,7 @@ export function ProblematicLinksTable() {
                     </div>
                   </TableCell>
                   <TableCell className="text-right text-muted-foreground">
-                    {new Date(
-                      destination.createdAt.replace(" ", "T") + "Z",
-                    ).toLocaleTimeString([], {
+                    {new Date(destination.createdAt.replace(" ", "T") + "Z").toLocaleTimeString([], {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}

@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
@@ -69,12 +63,9 @@ export function PricingSection() {
           <Badge variant="outline" className="mb-4 px-3 py-1">
             Pricing
           </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            Simple, transparent pricing
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Simple, transparent pricing</h2>
           <p className="text-lg text-muted-foreground">
-            Choose the plan that fits your needs. All plans include our core
-            link protection features.
+            Choose the plan that fits your needs. All plans include our core link protection features.
           </p>
         </div>
 
@@ -100,9 +91,7 @@ export function PricingSection() {
                   <span className="text-3xl font-bold">{plan.price}</span>
                   <span className="text-muted-foreground">{plan.period}</span>
                 </div>
-                <CardDescription className="mt-2">
-                  {plan.description}
-                </CardDescription>
+                <CardDescription className="mt-2">{plan.description}</CardDescription>
               </CardHeader>
 
               <CardContent className="space-y-6">
@@ -115,14 +104,8 @@ export function PricingSection() {
                   ))}
                 </ul>
 
-                <Button
-                  className="w-full"
-                  variant={plan.popular ? "default" : "outline"}
-                  size="lg"
-                >
-                  {plan.name === "Enterprise"
-                    ? "Contact Sales"
-                    : "Start Free Trial"}
+                <Button className="w-full" variant={plan.popular ? "default" : "outline"} size="lg">
+                  {plan.name === "Enterprise" ? "Contact Sales" : "Start Free Trial"}
                 </Button>
               </CardContent>
             </Card>
