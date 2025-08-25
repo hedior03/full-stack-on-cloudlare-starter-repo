@@ -34,6 +34,27 @@ export const getLinkById = async (data: { linkId: string }) => {
   console.log(`[getLinkById] ${JSON.stringify(data, null, 2)}`);
   const db = getDb();
   const linksResult = await db.select().from(links).where(eq(links.linkId, data.linkId)).limit(1);
+  if (linksResult.length === 0) {
+    return undefined;
+  }
+  const destinations = JSON.parse(linksResult[0].destinations);
+  const parsedLink = { ...linksResult[0], destinations };
+  return parsedLink;
+};
 
-  return linksResult.length > 0 ? linksResult[0] : undefined;
+export const updateLinkNameById = async (data: { linkId: string; name: string }) => {
+  console.log(`[updateLinkByIk] ${JSON.stringify(data)}`);
+  const db = getDb();
+  await db.update(links).set({ name: data.name });
+  return data.linkId;
+};
+
+export const updateLinkDestinationsById = async (data: {
+  linkId: string;
+  destinations: { default: string } & { [k: string]: string };
+}) => {
+  console.log(`[updateLinkByIk] ${JSON.stringify(data)}`);
+  const db = getDb();
+  await db.update(links).set({ destinations: JSON.stringify(data.destinations) });
+  return data.linkId;
 };

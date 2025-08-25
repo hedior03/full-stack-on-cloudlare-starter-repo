@@ -1,4 +1,10 @@
-import { createLink, getLinkById, listLinks } from "@repo/data-ops/queries/links";
+import {
+  createLink,
+  getLinkById,
+  listLinks,
+  updateLinkDestinationsById,
+  updateLinkNameById,
+} from "@repo/data-ops/queries/links";
 import { createLinkSchema, destinationsSchema, paginationSchema } from "@repo/data-ops/zod-schema/links";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
@@ -20,7 +26,7 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .mutation(async ({ input }) => {
-      console.log(input.linkId, input.name);
+      updateLinkNameById(input);
     }),
   getLink: t.procedure
     .input(
@@ -42,7 +48,7 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .mutation(async ({ input }) => {
-      console.log(input.linkId, input.destinations);
+      return await updateLinkDestinationsById(input);
     }),
   activeLinks: t.procedure.query(async () => {
     return ACTIVE_LINKS_LAST_HOUR;
