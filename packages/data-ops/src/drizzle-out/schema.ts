@@ -1,5 +1,5 @@
-import { sqliteTable, AnySQLiteColumn, index, text, numeric, real } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
+import { index, numeric, real, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const destinationEvaluations = sqliteTable(
   "destination_evaluations",
@@ -36,7 +36,7 @@ export const linkClicks = sqliteTable(
 export const links = sqliteTable("links", {
   linkId: text("link_id").primaryKey().notNull(),
   accountId: text("account_id").notNull(),
-  destinations: numeric().notNull(),
+  destinations: text().notNull(),
   created: numeric().default(sql`(CURRENT_TIMESTAMP)`).notNull(),
   updated: numeric().default(sql`(CURRENT_TIMESTAMP)`).notNull(),
   name: text().notNull(),

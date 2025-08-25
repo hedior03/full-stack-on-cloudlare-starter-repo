@@ -28,7 +28,7 @@ CREATE INDEX `idx_link_clicks_id` ON `link_clicks` (`id`);--> statement-breakpoi
 CREATE TABLE `links` (
 	`link_id` text PRIMARY KEY NOT NULL,
 	`account_id` text NOT NULL,
-	`destinations` numeric NOT NULL,
+	`destinations` text NOT NULL,
 	`created` numeric DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
 	`updated` numeric DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
 	`name` text NOT NULL

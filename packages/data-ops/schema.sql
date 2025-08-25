@@ -1,7 +1,7 @@
 CREATE TABLE links (
 	link_id text PRIMARY KEY NOT NULL,
 	account_id text NOT NULL,
-	destinations numeric NOT NULL,
+	destinations text NOT NULL,
 	created numeric DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
 	updated numeric DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
 	name text NOT NULL
@@ -31,4 +31,3 @@ CREATE TABLE destination_evaluations (
 );
 --> statement-breakpoint
 CREATE INDEX idx_destination_evaluations_account_time ON destination_evaluations (account_id,created_at);
-*/
