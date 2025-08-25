@@ -32,6 +32,11 @@ export const createLinkSchema = linkSchema.omit({
   linkId: true,
 });
 
+export const paginationSchema = z.object({
+  limit: z.number().optional(),
+  offset: z.number().optional(),
+});
+
 export const cloudflareInfoSchema = z.object({
   country: z.string().optional(),
   latitude: z
@@ -44,16 +49,16 @@ export const cloudflareInfoSchema = z.object({
     .optional(),
 });
 
-export const durableObjectGeoClickSchama = z.object({
+export const durableObjectGeoClickSchema = z.object({
   latitude: z.number(),
   longitude: z.number(),
   time: z.number(),
   country: z.string(),
 });
 
-export const durableObjectGeoClickArraySchema = z.array(durableObjectGeoClickSchama);
+export const durableObjectGeoClickArraySchema = z.array(durableObjectGeoClickSchema);
 
-export type DurableObjectGeoClickSchemaType = z.infer<typeof durableObjectGeoClickSchama>;
+export type DurableObjectGeoClickSchemaType = z.infer<typeof durableObjectGeoClickSchema>;
 
 export type CloudflareInfoSchemaType = z.infer<typeof cloudflareInfoSchema>;
 
