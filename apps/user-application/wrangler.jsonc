@@ -14,6 +14,12 @@
   "observability": {
     "enabled": true,
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "64144f4f8a8b33fc0e2c82a749562c95"
+    }
+  ],
   "vars": {
     "VITE_BACKEND_HOST": "https://user-application.hedior.workers.dev"
   }
