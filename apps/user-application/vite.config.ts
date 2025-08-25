@@ -7,7 +7,17 @@ import tsConfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsConfigPaths(), tanstackRouter({ autoCodeSplitting: true }), viteReact(), tailwindcss(), cloudflare()],
+  plugins: [
+    tsConfigPaths(),
+    tanstackRouter({ autoCodeSplitting: true }),
+    viteReact(),
+    tailwindcss(),
+    cloudflare({
+      experimental: {
+        remoteBindings: true,
+      },
+    }),
+  ],
   server: {
     watch: {
       ignored: ["**/.wrangler/state/**"],

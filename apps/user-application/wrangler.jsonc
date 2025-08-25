@@ -8,6 +8,7 @@
   "main": "worker/index.ts",
   "compatibility_date": "2025-06-17",
   "assets": {
+    "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application",
   },
@@ -17,7 +18,9 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_id": "64144f4f8a8b33fc0e2c82a749562c95"
+      "database_name": "smartlinks-db-stage",
+      "database_id": "bc3494e5-7a4d-40fa-9eb3-0d9e4f53eb06",
+      "experimental_remote": true
     }
   ],
   "vars": {
