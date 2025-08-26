@@ -26,7 +26,7 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .mutation(async ({ input }) => {
-      updateLinkNameById(input);
+      await updateLinkNameById(input);
     }),
   getLink: t.procedure
     .input(
@@ -35,7 +35,7 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .query(async ({ input }) => {
-      const data = getLinkById(input);
+      const data = await getLinkById(input);
 
       if (!data) throw new TRPCError({ code: "NOT_FOUND" });
       return data;
