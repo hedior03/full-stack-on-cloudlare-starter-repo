@@ -1,20 +1,30 @@
 import {
   createLink,
-  getLinkById,
-  listLinks,
-  updateLinkDestinationsById,
-  updateLinkNameById,
+  getLink,
+  getLinks,
+  updateLinkDestinations,
+  updateLinkName,
 } from "@repo/data-ops/queries/links";
-import { createLinkSchema, destinationsSchema, paginationSchema } from "@repo/data-ops/zod-schema/links";
+import { createLinkSchema, destinationsSchema } from "@repo/data-ops/zod-schema/links";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { t } from "@/worker/trpc/trpc-instance";
 import { ACTIVE_LINKS_LAST_HOUR, LAST_30_DAYS_BY_COUNTRY } from "./dummy-data";
 
 export const linksTrpcRoutes = t.router({
-  linkList: t.procedure.input(paginationSchema).query(async ({ input }) => {
-    return await listLinks(input);
-  }),
+  linkList: t.procedure
+    .input(
+      z.object({
+        offset: z.number().optional(),
+        limit: z.number().optional(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      return await getLinks(ctx.userInfo.userId, {
+        offset: input.offset,
+        limit: input.limit,
+      });
+    }),
   createLink: t.procedure.input(createLinkSchema).mutation(async ({ ctx, input }) => {
     return await createLink({ accountId: ctx.userInfo.userId, ...input });
   }),
@@ -26,7 +36,8 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .mutation(async ({ input }) => {
-      await updateLinkNameById(input);
+      console.log(input.linkId, input.name);
+      await updateLinkName(input.linkId, input.name);
     }),
   getLink: t.procedure
     .input(
@@ -35,7 +46,7 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .query(async ({ input }) => {
-      const data = await getLinkById(input);
+      const data = await getLink(input.linkId);
 
       if (!data) throw new TRPCError({ code: "NOT_FOUND" });
       return data;
@@ -48,7 +59,7 @@ export const linksTrpcRoutes = t.router({
       }),
     )
     .mutation(async ({ input }) => {
-      return await updateLinkDestinationsById(input);
+      await updateLinkDestinations(input.linkId, input.destinations);
     }),
   activeLinks: t.procedure.query(async () => {
     return ACTIVE_LINKS_LAST_HOUR;
