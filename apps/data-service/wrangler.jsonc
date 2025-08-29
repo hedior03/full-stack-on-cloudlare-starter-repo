@@ -11,4 +11,17 @@
 	"observability": {
 		"enabled": true,
 	},
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "smartlinks-db-stage",
+      "database_id": "bc3494e5-7a4d-40fa-9eb3-0d9e4f53eb06",
+      "experimental_remote": true
+    }
+  ],
+  "kv_namespaces": [{
+    "binding": "CACHE",
+    "id": "7314eaf98f744747b4188c98800b4a90",
+    "experimental_remote": true
+  }]
 }
