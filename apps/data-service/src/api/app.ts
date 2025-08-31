@@ -2,8 +2,12 @@ import { getLink } from '@repo/data-ops/queries/links';
 import { cloudflareInfoSchema, LinkSchemaType, linkSchema } from '@repo/data-ops/zod-schema/links';
 import { Hono } from 'hono';
 
+function linkCacheKey(id: string) {
+	return `link:${id}`;
+}
+
 async function getLinkInfoFromKv(env: Env, id: string) {
-	const linkInfo = await env.CACHE.get(id);
+	const linkInfo = await env.CACHE.get(linkCacheKey(id));
 	if (!linkInfo) return null;
 	try {
 		const parsedLinkInfo = JSON.parse(linkInfo);
@@ -17,7 +21,7 @@ const TTL_TIME = 60 * 5; // 5 Minutes
 
 async function saveLinkInfoToKv(env: Env, id: string, linkInfo: LinkSchemaType) {
 	try {
-		await env.CACHE.put(id, JSON.stringify(linkInfo), {
+		await env.CACHE.put(linkCacheKey(id), JSON.stringify(linkInfo), {
 			expirationTtl: TTL_TIME,
 		});
 	} catch (error) {
