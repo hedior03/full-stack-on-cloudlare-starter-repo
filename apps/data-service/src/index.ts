@@ -13,4 +13,12 @@ export default class DataService extends WorkerEntrypoint<Env> {
 		const env = this.env;
 		return app.fetch(request, env, ctx);
 	}
+
+	async queue(batch: MessageBatch<unknown>) {
+		for (const message of batch.messages) {
+			console.log(`Message (${message.id})`);
+			console.log(JSON.stringify(message.body, null, 2));
+			message.ack();
+		}
+	}
 }

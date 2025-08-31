@@ -23,5 +23,18 @@
     "binding": "CACHE",
     "id": "7314eaf98f744747b4188c98800b4a90",
     "experimental_remote": true
-  }]
+  }],
+  "queues": {
+    "consumers": [
+      {
+        "queue": "smartlinks-data-queue-stage"
+      }
+    ],
+    "producers": [
+      {
+        "queue": "smartlinks-data-queue-stage",
+        "binding": "QUEUE"
+      }
+    ]
+  }
 }
