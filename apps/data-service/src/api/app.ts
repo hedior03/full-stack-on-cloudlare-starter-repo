@@ -13,7 +13,7 @@ async function getLinkInfoFromKv(env: Env, id: string) {
 	}
 }
 
-const TTL_TIME = 60 * 60 * 24; // 1 day
+const TTL_TIME = 60 * 5; // 5 Minutes
 
 async function saveLinkInfoToKv(env: Env, id: string, linkInfo: LinkSchemaType) {
 	try {
